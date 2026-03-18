@@ -59,16 +59,3 @@ def top_n_merchants(by_merchant, n=3):
     return spent_items[:n]
 
 
-if __name__ == "__main__":
-    BASE_DIR = Path(__file__).resolve().parent
-    csv_path = BASE_DIR / "data" / "demo_transactions.csv"
-
-    rows = load_transactions(csv_path)
-
-    report = summarize(rows)
-    print("Total spent:", report["total_spent"])
-    print("Total income:", report["total_income"])
-    print("Top merchants:", top_n_merchants(report["by_merchant"], n=3))
-    print("Daily totals:", report["by_date"])
-    print("High flags:", report["high_flags"])
-
