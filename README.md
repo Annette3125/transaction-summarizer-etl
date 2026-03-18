@@ -10,8 +10,14 @@ Loads a CSV file of transactions and prints:
 
 ## Run
 ```
-python summarizer.py
+python run.py
 ```
+
+### Tests
+```
+python summary_text.py
+```
+
 
 ## CSV format
 
@@ -19,6 +25,7 @@ python summarizer.py
 date,merchant,amount,currency
 ```
 - negative amount = expense, positive = income
+
 
 
 ### Sample output
