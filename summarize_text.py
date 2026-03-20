@@ -64,6 +64,19 @@ def _test_summarize_transactions():
     assert "High-amount flags: 1" in text
 
 
+def summarize_transactions_json(report: dict, top_n: int = 3) -> dict:
+    text = summarize_transactions(report, top_n=top_n)
+
+    return {
+        "summary_text": text,
+        "totals": {
+            "total_spent": report.get("total_spent", 0.0),
+            "total_income": report.get("total_income", 0.0),
+            "net": round(report.get("total_income", 0.0) - report.get("total_spent", 0.0), 2),
+        },
+        "high_flags_count": len(report.get("high_flags", [])),
+    }
+
 if __name__ == "__main__":
     _test_summarize_transactions()
     print("All tests passed!")

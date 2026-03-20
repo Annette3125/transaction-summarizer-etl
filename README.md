@@ -26,7 +26,9 @@ date,merchant,amount,currency
 ```
 - negative amount = expense, positive = income
 
-
+### Demo files
+- `data/demo_transactions.csv` (clean)
+- `data/demo_transactions_dirty.csv` (dirty formatting to test cleaning)
 
 ### Sample output
 
@@ -37,3 +39,4 @@ Top merchants: [('AMAZON', 274.99), ('MAXIMA', 35.5), ('NETFLIX', 9.99)]
 Daily totals: {'2026-03-01': -21.3, '2026-03-02': 1135.01, '2026-03-03': -33.09, '2026-03-04': -210.0}
 High flags: [{'date': '2026-03-04', 'merchant': 'AMAZON', 'amount': -210.0, 'currency': 'EUR'}]
 ```
+

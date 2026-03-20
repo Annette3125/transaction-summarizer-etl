@@ -1,16 +1,15 @@
 import csv
 from collections import defaultdict
-from pathlib import Path
+
+from cleaning import parse_currency_row
 
 
 def load_transactions(path):
-    path = str(path)
     rows = []
     with open(path, newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for r in reader:
-            r["amount"] = float(r["amount"])
-            rows.append(r)
+            rows.append(parse_currency_row(r))
     return rows
 
 
