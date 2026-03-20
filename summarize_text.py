@@ -23,13 +23,14 @@ def summarize_transactions(report: dict, top_n: int = 3) -> str:
     lines.append(f"- Total income: {total_income:.2f}")
     lines.append(f"- Net: {net:.2f}")
 
+
     if top_merchants:
         merch_str = ", ".join([f"{m} ({amt:.2f})" for m, amt in top_merchants])
         lines.append(f"- Top {len(top_merchants)} spending merchants: {merch_str}")
 
     if expense_days:
         worst_day, worst_amt = expense_days[0]
-        lines.append(f"- Highest-spend day: {worst_day} ({-worst_amt:.2f})")
+        lines.append(f"- Highest-spend day: {worst_day} ({abs(worst_amt):.2f})")
 
     if high_flags:
         lines.append(f"- High-amount flags: {len(high_flags)}")
